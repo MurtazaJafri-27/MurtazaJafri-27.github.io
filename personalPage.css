@@ -308,25 +308,17 @@ main:has(#intro:checked) .introPara {
     left: 25%;
 }
 
-label[for="page1"] {
-    display: none;
-    color: rgb(255, 0, 0);
-    position: fixed;
-    bottom: 5%;
-    left: 25%;
-
-    cursor: pointer;
-}
-
+label[for="page1"],
 label[for="page2"] {
-    color: rgb(255, 0, 0);
     display: none;
+    color: rgb(255, 0, 0);
     position: fixed;
     bottom: 5%;
     left: 25%;
 
     cursor: pointer;
 }
+
 
 #page2 {
     width: 2.5vw;

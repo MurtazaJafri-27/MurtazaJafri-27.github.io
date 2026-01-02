@@ -88,6 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const artworkToggle = document.getElementById('artworkToggle');
     const uniToggle = document.getElementById('universityToggle');
     const projToggle = document.getElementById('projects');
+    const  pageLabels = document.querySelectorAll('main label');
 
     const introParagraph = document.querySelector('.introPara');
     const artworkDiv = document.querySelector('.artwork');
@@ -111,11 +112,17 @@ document.addEventListener('DOMContentLoaded', function() {
             pageButtons.forEach(h3 => {
                 h3.style.display = 'none';
             });
+            pageLabels.forEach(label => {
+                label.style.display = 'block';
+            })
 
         } else {
             // Reset when Projects is unchecked
             introParagraph.style.display = '';
             artworkDiv.style.transform = '';
+            pageLabels.forEach(label => {
+                label.style.display = '';
+            })
 
             // SHOW page number labels again
             pageButtons.forEach(h3 => {
