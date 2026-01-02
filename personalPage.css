@@ -15,8 +15,8 @@ main {
     height: 6vh;
     display: none;
     position: absolute;
-    bottom: 1%;
-    right: 2%;
+    bottom: 0.75%;
+    right: 1%;
     cursor: pointer;
     z-index: 5;
 }
@@ -25,8 +25,8 @@ label h1 {
     cursor: pointer;
     color: grey; 
     position: absolute;
-    bottom: 1%;
-    right: 2%;
+    bottom: 0.75%;
+    right: 1%;
     display: inline;
     z-index: 3;
     transition: ease-in-out 0.4s all;
@@ -447,45 +447,42 @@ label[for="page2"] {
     top: 8%;
     left: 14%;
     position: fixed;
-    display: none; /* Hidden by default! */
+    display: none;
     flex-direction: column;
     background-color: rgba(31, 41, 55, 0.95);
     border: 2px solid white;
     border-radius: 20px;
     padding: 20px;
     z-index: 0;
+
+    transition: 0.4s ease-in-out all;
+}
+
+.projectElem {
+    width: 12vw;
+    height: 8vh;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    position: flex-start;
+    align-items: center;
+    margin: 2%;
+    border-radius: 20px;
+}
+.projectElem a {
+    text-decoration: none;
+    color: Red;
+}
+
+.projectElem:hover {
+    transform: scale(1.025);
 }
 
 /* Show when projects checkbox is checked */
 main:has(#projects:checked) .projectDiv {
     display: flex;
+    transition: 0.4s ease-in-out all;
 }
 
-#fileupload {
-    margin-bottom: 20px;
-    color: white;
-}
 
-.file-item {
-    padding: 10px;
-    margin: 10px 0;
-    background: white;
-    color: black;
-    border: 2px solid black;
-    border-radius: 8px;
-    cursor: pointer;
-    width: fit-content;
-}
 
-.file-item:hover {
-    background: lightgray;
-    transform: scale(1.05);
-}
-
-.fileUploader {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
-    overflow-y: auto;
-}

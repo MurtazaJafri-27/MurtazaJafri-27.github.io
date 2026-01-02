@@ -35,6 +35,8 @@ I\’\ guided by my faith as a Muslim, which shapes my values and mindset. <br>M
     })
 })
 
+
+
 document.addEventListener('DOMContentLoaded', function() {
     const artworkCheckbox = document.getElementById('artworkToggle')
     const introCheckbox = document.getElementById('intro')
@@ -64,7 +66,7 @@ introCheckbox.addEventListener('change', () => {
         }
     })
 
-})
+});
 
 document.addEventListener('DOMContentLoaded', function() {
        const uniToggle = document.getElementById('universityToggle')
@@ -80,6 +82,48 @@ document.addEventListener('DOMContentLoaded', function() {
         }
        })
 })
+
+document.addEventListener('DOMContentLoaded', function() {
+    const introCheck = document.getElementById('intro');
+    const artworkToggle = document.getElementById('artworkToggle');
+    const uniToggle = document.getElementById('universityToggle');
+    const projToggle = document.getElementById('projects');
+
+    const introParagraph = document.querySelector('.introPara');
+    const artworkDiv = document.querySelector('.artwork');
+
+    // Page number labels (1 and 2)
+    const pageButtons = document.querySelectorAll('main label h3');
+
+    projToggle.addEventListener('change', function() {
+        if (this.checked) {
+            // Turn off other sections
+            uniToggle.checked = false;
+            artworkToggle.checked = false;
+            introCheck.checked = false;
+
+            // Force-hide other content
+            introParagraph.innerHTML = "";
+            introParagraph.style.display = 'none';
+            artworkDiv.style.transform = 'translateY(-200vh)';
+
+            // HIDE page number labels
+            pageButtons.forEach(h3 => {
+                h3.style.display = 'none';
+            });
+
+        } else {
+            // Reset when Projects is unchecked
+            introParagraph.style.display = '';
+            artworkDiv.style.transform = '';
+
+            // SHOW page number labels again
+            pageButtons.forEach(h3 => {
+                h3.style.display = '';
+            });
+        }
+    });
+});
 
 document.addEventListener('DOMContentLoaded', function() {
     const sem1check = document.getElementById('sem1')
@@ -286,47 +330,3 @@ document.addEventListener('DOMContentLoaded', function() {
             images1.style.display = 'none'
          }})
     })
-
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('fileupload').addEventListener('change', (event) => {
-        const fileTarget = event.target.files;
-        const fileList = document.querySelector('.fileUploader');
-
-        for(let file of fileTarget)
-        {
-            const fileItem = document.createElement('div');
-            fileItem.className = 'file-item';
-            
-            // Create file name span
-            const fileName = document.createElement('span');
-            fileName.textContent = `📄 ${file.name}`;
-            fileName.style.flexGrow = '1';
-            
-            // Create remove button
-            const removeBtn = document.createElement('button');
-            removeBtn.textContent = '✕';
-            removeBtn.className = 'remove-btn';
-            removeBtn.style.marginLeft = '10px';
-            
-            // Remove button click
-            removeBtn.addEventListener('click', (e) => {
-                e.stopPropagation(); // Prevent download when clicking remove
-                fileItem.remove();
-            });
-            
-            // Download on file name click
-            fileName.addEventListener('click', () => {
-                const url = URL.createObjectURL(file);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = file.name;
-                a.click();
-                URL.revokeObjectURL(url);
-            });
-            
-            fileItem.appendChild(fileName);
-            fileItem.appendChild(removeBtn);
-            fileList.appendChild(fileItem);
-        }
-    })
-})
