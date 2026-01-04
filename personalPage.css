@@ -4,10 +4,19 @@ body {
     overflow-x: hidden;
 }
 
-main {
-    min-height: 100vh;
+@media(min-width: 786px) {
+     main {min-height: 100vh;
     display: flex;
     align-items: center;
+     }
+}
+
+@media(max-width: 480px) {
+     main {min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+     }
 }
 
 #modes {
@@ -65,19 +74,23 @@ body:has(#modes:checked) {
     background-color: white;  
 }
 
-
+@media (max-width: 480px) {
 .slider {
     width: 12vw;
     height: 90vh;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
+
     background-color: rgb(31, 41, 55, 0.95);
     box-shadow: 5px 3px 5px black;
     border: 2px solid white;
+    font-size: 20px;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     transform: translateX(-11.25vw);  
+
     position: absolute;
     left: 0;
     top: 0;
@@ -85,7 +98,33 @@ body:has(#modes:checked) {
     transition: transform 0.4s ease-in-out;
     cursor: default;
 }
+}
 
+@media (min-width: 1200px) {
+.slider {
+    width: 12vw;
+    height: 90vh;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+
+    background-color: rgb(31, 41, 55, 0.95);
+    box-shadow: 5px 3px 5px black;
+    border: 2px solid white;
+    font-size: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translateX(-11.25vw);  
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    transition: transform 0.4s ease-in-out;
+    cursor: default;
+}
+}
 .uniSlider {
     width: 12vw;
     height: 90vh;
@@ -138,7 +177,7 @@ main:has(#universityToggle:checked) ~ label h1{
 }
 
 .Murtaza {
-    margin-top: 4px;
+    margin-top: 10%;
     color: white;
     text-shadow: 2px 2px 2px grey;
 
@@ -303,21 +342,13 @@ main:has(#intro:checked) .introPara {
 #page1 {
     width: 2.5vw;
     height: 5vh;
+    background-color: white;
     position: fixed;
     bottom: 5%;
     left: 25%;
 }
 
-label[for="page1"],
-label[for="page2"] {
-    display: none;
-    color: rgb(255, 0, 0);
-    position: fixed;
-    bottom: 5%;
-    left: 25%;
 
-    cursor: pointer;
-}
 
 
 #page2 {
@@ -328,24 +359,54 @@ label[for="page2"] {
     left: 27%;
 }
 
+label[for="page1"] {
+    display: none;
+    color: rgba(0, 212, 46, 0.95);
+    position: fixed;
+    bottom: 5%;
+    left: 25%;
+
+    cursor: pointer;
+    transition: 0.3s ease-in-out all;
+}
+
 label[for="page2"] {
-    color: rgb(255, 0, 0);
+    display: none;
+    color: rgba(0, 212, 46, 0.95);
     position: fixed;
     bottom: 5%;
     left: 27%;
 
     cursor: pointer;
+    transition: 0.3s ease-in-out all;
 }
 
-label[for="page2"] {
-    color: rgb(255, 0, 0);
-    position: fixed;
-    bottom: 5%;
-    left: 27%;
-
-    cursor: pointer;
+label[for="page1"]:hover
+{
+    transform: scale(1.025);
+    color: purple;
+    transition: 0.3s ease-in-out all;
+}
+label[for="page2"]:hover
+{
+    transform: scale(1.025);
+    color: purple;
+    transition: 0.3s ease-in-out all;
 }
 
+.pageBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+}
+
+.pageBox:hover {
+    border: 5px solid greenyellow;
+    border-radius: 20px;
+}
 
 /* ARTWORK IMAGES */
 
@@ -453,8 +514,10 @@ label[for="page2"] {
 .projectElem {
     width: 12vw;
     height: 8vh;
+    padding: 0;
     background-color: white;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     position: flex-start;
     align-items: center;
@@ -462,8 +525,13 @@ label[for="page2"] {
     border-radius: 20px;
 }
 .projectElem a {
+    margin: 0;
     text-decoration: none;
     color: Red;
+}
+
+.projectElem h4 {
+    margin: 0;
 }
 
 .projectElem:hover {
@@ -476,5 +544,9 @@ main:has(#projects:checked) .projectDiv {
     transition: 0.4s ease-in-out all;
 }
 
+body:has(#modes:checked) .projectDiv {
+    border: 2px solid black;
+    transition: 0.4s ease-in-out all;
+}
 
 

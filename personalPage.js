@@ -2,14 +2,14 @@ document.addEventListener('DOMContentLoaded', function() {
 const checkbox = document.getElementById('modes');
 const heading = document.querySelector('label h1');
 
-heading.textContent = 'Light mode'
+heading.textContent = 'Light Mode'
 
 checkbox.addEventListener('change', function() {
     if(this.checked){
-        heading.textContent = 'Dark mode'
+        heading.textContent = 'Dark Mode'
     }
     else{
-        heading.textContent = 'Light mode'
+        heading.textContent = 'Light Mode'
     }
 })
 })
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
 toggle.addEventListener('change', () => {
     pageLabels.forEach(label => {
         label.style.display = toggle.checked ? 'block' : 'none';
-    });    
+    });
 })
 introCheckbox.addEventListener('change', () => {
       pageLabels.forEach(label => {
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
        uniToggle.addEventListener('change', function() {
         if(this.checked){
-             modeLabel.style.transition = 'right 0.2s ease-in all'
+             modeLabel.style.transition = 'right 0.4s ease-in all'
             modeLabel.style.right = '14vw'
         }
         else {
@@ -95,6 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Page number labels (1 and 2)
     const pageButtons = document.querySelectorAll('main label h3');
+    const pageBoxes = document.querySelectorAll('.pageBox');
 
     projToggle.addEventListener('change', function() {
         if (this.checked) {
@@ -107,6 +108,9 @@ document.addEventListener('DOMContentLoaded', function() {
             introParagraph.innerHTML = "";
             introParagraph.style.display = 'none';
             artworkDiv.style.transform = 'translateY(-200vh)';
+            pageBoxes.forEach(pageBoxes => {
+                 pageBoxes.style.display = 'none';
+            });
 
             // HIDE page number labels
             pageButtons.forEach(h3 => {
@@ -127,6 +131,9 @@ document.addEventListener('DOMContentLoaded', function() {
             // SHOW page number labels again
             pageButtons.forEach(h3 => {
                 h3.style.display = '';
+            });
+            pageBoxes.forEach(pageBoxes => {
+                 pageBoxes.style.display = '';
             });
         }
     });
