@@ -524,12 +524,17 @@ label[for="page2"]:hover
     margin: 2%;
     border-radius: 20px;
 }
-.projectElem a {
+.projectElem a:first-of-type {
     margin: 0;
     text-decoration: none;
     color: Red;
 }
 
+.weblink {
+    margin: 10px;
+    color: blue;
+    text-decoration: none;
+}
 .projectElem h4 {
     margin: 0;
 }
@@ -548,5 +553,4 @@ body:has(#modes:checked) .projectDiv {
     border: 2px solid black;
     transition: 0.4s ease-in-out all;
 }
-
 
