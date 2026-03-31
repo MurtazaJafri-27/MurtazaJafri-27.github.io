@@ -244,6 +244,10 @@ input[type="checkbox"]  {
     display: inline;
 }
 
+#sem2:checked ~ .sem2courses {
+    display: inline;
+}
+
 
 .uniSlider ul li h3 {
     margin-bottom: 0;
