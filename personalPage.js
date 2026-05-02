@@ -344,3 +344,12 @@ document.addEventListener('DOMContentLoaded', function() {
             images1.style.display = 'none'
          }})
     })
+
+   document.addEventListener('DOMContentLoaded', function() {
+    const loading_button = document.querySelector('.loadingButton');
+    const loader = document.querySelector('.loader');
+
+    loading_button.addEventListener('click', () => {
+        loader.style.display = 'none';
+    });
+});

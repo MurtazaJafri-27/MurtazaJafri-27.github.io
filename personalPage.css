@@ -558,3 +558,152 @@ body:has(#modes:checked) .projectDiv {
     transition: 0.4s ease-in-out all;
 }
 
+.loader {
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    border-radius: 50px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    z-index: 5;
+    transform: scale(1.1);
+}
+
+.left-arrow {
+    height: 100px;
+    width: 100px;
+    position: fixed;
+    background-color: greenyellow;
+    top: 37.7%;
+    left: 25%;
+    clip-path: polygon(100% 0%, 75% 50%, 100% 100%, 25% 100%, 0% 50%, 25% 0%);
+    box-shadow: 2px 2px solid grey;
+
+    animation: dropJump ease-out 6s forwards;
+}
+
+.loadingButton {
+    position: fixed;
+    top: 38%;
+    width: 250px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: blue;
+    border: 2px solid white;
+    border-radius: 30px;
+    z-index: 8;
+    visibility: hidden;
+
+    animation: buttonEnter 1s ease-in 8s forwards;
+}
+
+.loadingButton:hover {
+    box-shadow:4px 4px grey;
+    cursor: pointer;
+    transform: scale(1.1);
+    background-color: rgb(126, 27, 255);
+    color: rgb(255, 255, 255);
+}
+
+@keyframes buttonEnter {
+    0% { visibility: hidden;}
+    100% { visibility: visible;}
+}
+
+.right-arrow {
+    height: 100px;
+    width: 100px;
+    position: fixed;
+    background-color: greenyellow;
+    top: 37.7%;
+    right: 25%;
+    clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
+    box-shadow: 2px 2px solid grey;
+
+    animation: dropJump ease-out 6s forwards;
+}
+
+.loadingTitle {
+    position: absolute;
+    color: red;
+    text-shadow: 4px 4px 2px rgb(255, 255, 255);
+    font-size: 300%;
+    font-weight: bold;
+}
+
+.left {
+    clip-path: inset(0 40% 0 0); /* shows left half only */
+    animation: cutLeft 2s ease-in 6s forwards;
+}
+
+.right {
+    clip-path: inset(0 0 0 60%); /* shows right half only */
+    animation: cutRight 2s ease-in 6s forwards;
+}
+
+@keyframes cutLeft {
+    0% {transform: scale(1.1); opacity: 1}
+    50% {transform: scale(1.5)}
+    100% {transform: scale(200); opacity: 0}
+}
+
+@keyframes cutRight {
+    0% {transform: scale(1.1); opacity: 1}
+    50% {transform: scale(1.5)}
+    100% {transform: scale(200); opacity: 0}
+}
+
+@keyframes dropJump {
+    0%   { opacity: 0; } /* starts off screen top */
+    15%  { transform: translateY(0%); transform: scale(1.1); opacity: 1;}     /* reaches middle */
+    30%  { transform: translateY(20%); transform: scale(1);}    /* bounces down */
+    47%  { transform: translateY(-10%); transform: scale(1.2);}
+    60%  { transform: translateY(0%); transform: scale(1);}     /* reaches middle */
+    75%  { transform: translateY(20%); transform: scale(1.3);}    /* bounces down */
+    85%  { transform: translateY(-10%); transform: scale(1);}   /* bounces up */
+    92%  { transform: translateY(8%); transform: scale(1.2);}     /* small bounce down */
+    97%  { transform: translateY(-3%); transform: scale(1.05);}    /* tiny bounce up */
+    100% { transform: translateY(0%); transform: scale(1); visibility: hidden;}     /* settles in middle */
+}
+
+.progressBar {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 600px;
+    height: 100px;
+    top: 38%;
+    left: 35%;
+    color: greenyellow;
+    border: 2px solid grey;
+
+    animation: progressDisappear 1s ease-in 7s forwards;
+}
+
+@keyframes progressDisappear {
+    0% { visibility: visible;}
+    100% { visibility: hidden;}
+}
+
+.progressFill {
+    width: 97%;
+    height: 80%;
+    background-color: rgb(255, 165, 47);
+
+    animation: Loading ease-out 6s forwards;
+}
+
+@keyframes Loading {
+    0%   { clip-path: inset(70% 0 0 0); opacity: 0; }
+    25%  { clip-path: inset(50% 0 0 0); }
+    67%  { clip-path: inset(30% 0 0 0); }
+    100% { clip-path: inset(0 0 0 0);   opacity: 1; }
+}
